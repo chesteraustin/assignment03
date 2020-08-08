@@ -1,4 +1,6 @@
-﻿using System;
+﻿using assignment03.Models;
+using System;
+using System.Linq;
 
 namespace assignment03
 {
@@ -51,6 +53,13 @@ namespace assignment03
 
         public static String topCounties()
         {
+            var h19db = new H19DBContext();
+            var population = h19db.Population.ToList();
+            Console.WriteLine(population);
+            foreach (var item in population)
+            {
+                Console.WriteLine("{0} has a population of {1}.", item.County, item.TotalPopulation);
+            }
             return "Display top N county dates and case deltas information";
         }
         public static String deltaGreater()
